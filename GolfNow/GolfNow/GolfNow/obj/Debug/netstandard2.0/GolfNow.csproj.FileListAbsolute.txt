@@ -1,0 +1,12 @@
+c:\users\bruno\source\repos\GolfNow\GolfNow\GolfNow\bin\Debug\netstandard2.0\GolfNow.deps.json
+c:\users\bruno\source\repos\GolfNow\GolfNow\GolfNow\bin\Debug\netstandard2.0\GolfNow.dll
+c:\users\bruno\source\repos\GolfNow\GolfNow\GolfNow\bin\Debug\netstandard2.0\GolfNow.pdb
+c:\users\bruno\source\repos\GolfNow\GolfNow\GolfNow\obj\Debug\netstandard2.0\GolfNow.csprojAssemblyReference.cache
+c:\users\bruno\source\repos\GolfNow\GolfNow\GolfNow\obj\Debug\netstandard2.0\App.xaml.g.cs
+c:\users\bruno\source\repos\GolfNow\GolfNow\GolfNow\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+c:\users\bruno\source\repos\GolfNow\GolfNow\GolfNow\obj\Debug\netstandard2.0\GolfNow.csproj.CoreCompileInputs.cache
+c:\users\bruno\source\repos\GolfNow\GolfNow\GolfNow\obj\Debug\netstandard2.0\GolfNow.AssemblyInfoInputs.cache
+c:\users\bruno\source\repos\GolfNow\GolfNow\GolfNow\obj\Debug\netstandard2.0\GolfNow.AssemblyInfo.cs
+c:\users\bruno\source\repos\GolfNow\GolfNow\GolfNow\obj\Debug\netstandard2.0\XamlC.stamp
+c:\users\bruno\source\repos\GolfNow\GolfNow\GolfNow\obj\Debug\netstandard2.0\GolfNow.dll
+c:\users\bruno\source\repos\GolfNow\GolfNow\GolfNow\obj\Debug\netstandard2.0\GolfNow.pdb
