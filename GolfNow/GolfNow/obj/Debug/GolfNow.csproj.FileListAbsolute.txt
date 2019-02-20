@@ -1,0 +1,6 @@
+/Users/bhaz/Projects/GolfNow/GolfNow/bin/Debug/GolfNow.dll
+/Users/bhaz/Projects/GolfNow/GolfNow/bin/Debug/GolfNow.pdb
+/Users/bhaz/Projects/GolfNow/GolfNow/obj/Debug/GolfNow.csprojAssemblyReference.cache
+/Users/bhaz/Projects/GolfNow/GolfNow/obj/Debug/GolfNow.csproj.CoreCompileInputs.cache
+/Users/bhaz/Projects/GolfNow/GolfNow/obj/Debug/GolfNow.dll
+/Users/bhaz/Projects/GolfNow/GolfNow/obj/Debug/GolfNow.pdb
