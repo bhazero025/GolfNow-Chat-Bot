@@ -1,10 +1,25 @@
 ﻿<Properties StartupConfiguration="{4FFDFFB7-E82E-43B5-804E-D268636124E4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Main.storyboard">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/ViewController.cs">
     <Files>
       <File FileName="iOS/Main.storyboard" />
       <File FileName="iOS/Main.cs" Line="17" Column="1" NotebookId="1" />
-      <File FileName="iOS/ViewController.cs" Line="36" Column="27" NotebookId="1" />
+      <File FileName="iOS/Info~.plist" NotebookId="1" />
+      <File FileName="iOS/ViewController.cs" Line="55" Column="41" NotebookId="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GolfNow" expanded="True">
+            <Node name="GolfNow.iOS" expanded="True">
+              <Node name="ViewController.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GolfNow.Droid FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -13,7 +28,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.GolfNow.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.463DE75E-D383-43DC-8E82-D2CB16E3B3D5">
-    <MonoDevelop.MacDev.AppleDevelopmentTeam />
-  </MonoDevelop.Ide.ItemProperties.GolfNow.iOS>
+  <MonoDevelop.Ide.ItemProperties.GolfNow.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.463DE75E-D383-43DC-8E82-D2CB16E3B3D5" />
 </Properties>

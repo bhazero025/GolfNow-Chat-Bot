@@ -14,5 +14,8 @@ namespace GolfNow.iOS
     [Register ("MessageCell")]
     partial class MessageCell
     {
+        void ReleaseDesignerOutlets ()
+        {
+        }
     }
 }

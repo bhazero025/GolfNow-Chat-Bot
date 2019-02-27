@@ -1,5 +1,5 @@
---cache=/Users/bhaz/Projects/GolfNow/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone11.4-12.1/mtouch-cache
---sim=/Users/bhaz/Projects/GolfNow/iOS/bin/iPhoneSimulator/Debug/device-builds/iphone11.4-12.1/GolfNow.iOS.app
+--cache=/Users/bhaz/GitHub/GolfNow-Chat-Bot/GolfNow/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone11.4-12.1/mtouch-cache
+--sim=/Users/bhaz/GitHub/GolfNow-Chat-Bot/GolfNow/iOS/bin/iPhoneSimulator/Debug/device-builds/iphone11.4-12.1/GolfNow.iOS.app
 --executable=GolfNow.iOS
 --debug
 --nolink
@@ -9,12 +9,13 @@
 --aot-options=-O=-float32
 --http-message-handler=NSUrlSessionHandler
 --abi=x86_64
---symbollist=/Users/bhaz/Projects/GolfNow/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone11.4-12.1/mtouch-symbols.list
+--symbollist=/Users/bhaz/GitHub/GolfNow-Chat-Bot/GolfNow/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone11.4-12.1/mtouch-symbols.list
 --dsym=no
--r=/Users/bhaz/Projects/GolfNow/GolfNow/bin/Debug/GolfNow.dll
+-r=/Users/bhaz/GitHub/GolfNow-Chat-Bot/GolfNow/GolfNow/bin/Debug/GolfNow.dll
 -r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll
 -r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll
 -r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.dll
+-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Net.Http.dll
 -r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Xml.dll
 -r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Xamarin.iOS.dll
 -r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/Microsoft.Win32.Primitives.dll
@@ -158,7 +159,7 @@
 -r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.XPath.XDocument.dll
 -r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.XPath.XmlDocument.dll
 -r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.Xsl.Primitives.dll
--r=/Users/bhaz/Projects/GolfNow/GolfNow/bin/Debug/GolfNow.dll
+-r=/Users/bhaz/GitHub/GolfNow-Chat-Bot/GolfNow/GolfNow/bin/Debug/GolfNow.dll
 --target-framework=Xamarin.iOS,v1.0
---root-assembly=/Users/bhaz/Projects/GolfNow/iOS/bin/iPhoneSimulator/Debug/GolfNow.iOS.exe
+--root-assembly=/Users/bhaz/GitHub/GolfNow-Chat-Bot/GolfNow/iOS/bin/iPhoneSimulator/Debug/GolfNow.iOS.exe
 

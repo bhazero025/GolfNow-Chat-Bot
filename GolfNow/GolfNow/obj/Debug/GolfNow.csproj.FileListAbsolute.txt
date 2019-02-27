@@ -4,3 +4,9 @@
 /Users/bhaz/Projects/GolfNow/GolfNow/obj/Debug/GolfNow.csproj.CoreCompileInputs.cache
 /Users/bhaz/Projects/GolfNow/GolfNow/obj/Debug/GolfNow.dll
 /Users/bhaz/Projects/GolfNow/GolfNow/obj/Debug/GolfNow.pdb
+/Users/bhaz/GitHub/GolfNow-Chat-Bot/GolfNow/GolfNow/bin/Debug/GolfNow.dll
+/Users/bhaz/GitHub/GolfNow-Chat-Bot/GolfNow/GolfNow/bin/Debug/GolfNow.pdb
+/Users/bhaz/GitHub/GolfNow-Chat-Bot/GolfNow/GolfNow/obj/Debug/GolfNow.csprojAssemblyReference.cache
+/Users/bhaz/GitHub/GolfNow-Chat-Bot/GolfNow/GolfNow/obj/Debug/GolfNow.csproj.CoreCompileInputs.cache
+/Users/bhaz/GitHub/GolfNow-Chat-Bot/GolfNow/GolfNow/obj/Debug/GolfNow.dll
+/Users/bhaz/GitHub/GolfNow-Chat-Bot/GolfNow/GolfNow/obj/Debug/GolfNow.pdb
