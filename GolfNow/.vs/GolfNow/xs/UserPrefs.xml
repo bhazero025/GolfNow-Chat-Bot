@@ -1,23 +1,19 @@
 ﻿<Properties StartupConfiguration="{4FFDFFB7-E82E-43B5-804E-D268636124E4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/ViewController.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="iOS/Main.storyboard" />
       <File FileName="iOS/Main.cs" Line="17" Column="1" NotebookId="1" />
-      <File FileName="iOS/Info~.plist" NotebookId="1" />
-      <File FileName="iOS/ViewController.cs" Line="55" Column="41" NotebookId="1" />
+      <File FileName="iOS/ViewController.cs" Line="44" Column="60" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GolfNow" expanded="True">
             <Node name="GolfNow.iOS" expanded="True">
-              <Node name="ViewController.cs" selected="True" />
+              <Node name="Packages" selected="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
