@@ -1,0 +1,11 @@
+C:\Users\sirch\Documents\GolfNow\GolfNowAPIHandler\obj\Debug\netcoreapp2.2\GolfNowAPIHandler.csprojAssemblyReference.cache
+C:\Users\sirch\Documents\GolfNow\GolfNowAPIHandler\obj\Debug\netcoreapp2.2\GolfNowAPIHandler.csproj.CoreCompileInputs.cache
+C:\Users\sirch\Documents\GolfNow\GolfNowAPIHandler\obj\Debug\netcoreapp2.2\GolfNowAPIHandler.AssemblyInfoInputs.cache
+C:\Users\sirch\Documents\GolfNow\GolfNowAPIHandler\obj\Debug\netcoreapp2.2\GolfNowAPIHandler.AssemblyInfo.cs
+C:\Users\sirch\Documents\GolfNow\GolfNowAPIHandler\bin\Debug\netcoreapp2.2\GolfNowAPIHandler.deps.json
+C:\Users\sirch\Documents\GolfNow\GolfNowAPIHandler\bin\Debug\netcoreapp2.2\GolfNowAPIHandler.runtimeconfig.json
+C:\Users\sirch\Documents\GolfNow\GolfNowAPIHandler\bin\Debug\netcoreapp2.2\GolfNowAPIHandler.runtimeconfig.dev.json
+C:\Users\sirch\Documents\GolfNow\GolfNowAPIHandler\bin\Debug\netcoreapp2.2\GolfNowAPIHandler.dll
+C:\Users\sirch\Documents\GolfNow\GolfNowAPIHandler\bin\Debug\netcoreapp2.2\GolfNowAPIHandler.pdb
+C:\Users\sirch\Documents\GolfNow\GolfNowAPIHandler\obj\Debug\netcoreapp2.2\GolfNowAPIHandler.dll
+C:\Users\sirch\Documents\GolfNow\GolfNowAPIHandler\obj\Debug\netcoreapp2.2\GolfNowAPIHandler.pdb
