@@ -12,9 +12,9 @@ namespace GolfNow.iOS
     public partial class ViewController : UIViewController
     {
         public static List<string> messages = new List<string>();
-        public static String accessKey = "ASIAR6K6Z5XVGXQC32IC";
-        public static String accessKeySecret = "fTv+9XUx+8lBQkYIZmbN7I8kLXH0kTIL+1k1C1RY";
-        public static String accessSessionToken = "FQoGZXIvYXdzELH//////////wEaDER3Jfq3SP+Mm9r5wyL4AqZ8nW57ZUavVM4rmbZxWZTpcbEX3yOq+Z+27NFny7JsE7L7Axfh3C5Bh3Dzp/EDgR3fbEIJChSu/+FYPWxnaly96cIUOgQQM0fyk9QwerPR8fiGPa3tGPBhYjFBcO44RNeDVHAKugR2Z1C+/pELT6530/QXfm7nFZ/J72opfv8UMfnQhOrznbiUTn51BV6yn+nL75cZj0XSUYd75aRLJQ8XSjQnE6FpNf4cluJ2WW9YDy9H2bCaRh960P/1+3f227F2TS0bFm5r9AhPOdzri+HvEtWQn9/vvDDUvB3nYKFGR95+w74B4SeBbVqS4YyuvJ0I/D/D5lxfi23ug2mxeiTDmPH/b9Z7lYVk/rs00AilRy4Hm0ltmJ5mUBU6ZWY7RCIQbZcGs9fkhP9+HVsiMFmMj33SkOsVAge2sNBeWV8R3cQUb1J+4rCiYMGSO9YbHvqPJYJwmHtEGst1ZT7p6OwYZi/eR5HvrfzkbEgqpAybwyA55wSkw48o5KDE5AU=";
+        public static String accessKey = "ASIAR6K6Z5XVEBULNAGQ";
+        public static String accessKeySecret = "jqrTAV2GsN/JRHs9N/RP+CdGRU7ktGotQLQsOCeF";
+        public static String accessSessionToken = "FQoGZXIvYXdzELf//////////wEaDJQvTD693wjRTW82TCL4AtRsqHLh0hG8jaE1iY5VEzUh+PIfmypOoA/xkYX5SBAAKPMv8RSr+ncbIEG4qCzhA0IS+PgTH9VDYLLFPufdBW1IbGk8QuEmcVnCvtzDD2HnuCzdM9UZCuqT7ACj+4o1y3JtQbtx8eATfsyA2Cj0vKocQTFD0Po8rKKsV2gmFjPO/Xu3JE0rAPEdSIa4LCbwQ397VWDcP2vpBtp7Yx7RjgnFcLHS9s+/mQ0psiaNT5k1QW8I0o3KCApco7c1VxTgk062jdDbmnLzxpMmSVjwDqtdphufUJpVkt7262VxWvSb7dbCVGhR1xVd57UMgGBktVxs3Qz881vW7iOZFG88q7jNbRDUnWeHzf665mLAujZwTN/4pq9eJafmJW88GYRdElAGjHA2TLcBYqn1LrOmHSxWxRKULVPF6usjQl8qmPdLciBu+UisOwYSr+IA+S5sxHLpgEH9Tw4ayinV08fjxJn2qSN0OCMscBA0/jdhVMnsoE0mkQ3W0kIotsnF5AU=";
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -40,7 +40,7 @@ namespace GolfNow.iOS
         partial void sendMessage(UIButton sender)
         {
             Console.WriteLine("Message is " + messageText);
-            sendMessageApi(messageText.Text);
+            //sendMessageApi(messageText.Text);
             messages.Add("You: " + messageText.Text);
             tableView.ReloadData();
 
@@ -52,9 +52,10 @@ namespace GolfNow.iOS
             request.UserId = "250";
             request.InputText = messageText.Text;
 
+            
             var task = lexClient.PostTextAsync(request);
+            messages.Add("Bot: " + task.Result.Message);
 
-            messages.Add("Bot " + task.Result.Message);
 
             messageText.Text = "";
             tableView.ReloadData();
@@ -87,13 +88,21 @@ namespace GolfNow.iOS
     {
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
-            UITableViewCell cell = tableView.DequeueReusableCell("cell");
-            if (cell == null)
+            var text = ViewController.messages[indexPath.Row];
+            Console.WriteLine("Text " + text + " contains " + text.Contains("You: ")); 
+            if (text.Contains("You:"))
             {
-                cell = new UITableViewCell(UITableViewCellStyle.Default, "cell");
+                var cell = (MyCell) tableView.DequeueReusableCell("myCell");
+
+                cell.update(text);
+                return cell;
             }
-            cell.TextLabel.Text = ViewController.messages[indexPath.Row];
-            return cell;
+            else
+            {
+                var cell = (BotCell) tableView.DequeueReusableCell("botCell");
+                cell.update(text);
+                return cell;
+            }
         }
 
         public override nint RowsInSection(UITableView tableView, nint section)

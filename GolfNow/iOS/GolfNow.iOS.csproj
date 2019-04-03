@@ -144,6 +144,14 @@
     <Compile Include="MessageCell.designer.cs">
       <DependentUpon>MessageCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyCell.cs" />
+    <Compile Include="MyCell.designer.cs">
+      <DependentUpon>MyCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BotCell.cs" />
+    <Compile Include="BotCell.designer.cs">
+      <DependentUpon>BotCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
