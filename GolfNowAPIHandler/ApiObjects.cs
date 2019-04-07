@@ -41,7 +41,7 @@ namespace GolfNowAPI
         }
     }
 
-    public class CustomerProfileNew
+    public class CustomerProfile
     {
         public string Password { get; set; }
         public string RegistrationSourceURL { get; set; }
@@ -73,6 +73,13 @@ namespace GolfNowAPI
         public bool MilitaryVerificationOptOut { get; set; }
         public FacilityNote NewFacilityNoteEntry { get; set; }
         public int Gender { get; set; }
+        public string Token { get; set; }
+
+        public CustomerProfile(string email, string pass)
+        {
+            EMailAddress = email;
+            Password = pass;
+        }
     }
 
     public class PreferredTeeTimeRange

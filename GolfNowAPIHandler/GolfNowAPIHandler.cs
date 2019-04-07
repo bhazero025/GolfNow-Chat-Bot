@@ -17,10 +17,33 @@ namespace GolfNowAPI
         //TODO: Default constructor with credentials
 		//TODO: Error catching
         const string ENDPOINT = "https://2-1-17-sandbox.api.gnsvc.com/rest";
-        const string TEMP_USERNAME = "";
-        const string TEMP_PASSWORD = "";
+        const string CHANNEL_ID = "7886";
+        static string TEMP_USERNAME = "UCF_Development";
+        static string TEMP_PASSWORD = "es2QENyqPftThmJy";
 
         public GolfNowAPIHandler(){
+            User user = new User();
+            using (HttpClient client = new HttpClient())
+            {
+                using (HttpResponseMessage response = new HttpResponseMessage())
+                {
+                    client.DefaultRequestHeaders.Clear();
+                    client.DefaultRequestHeaders.Add("UserName", TEMP_USERNAME);
+                    client.DefaultRequestHeaders.Add("Password", TEMP_PASSWORD);
+                    client.DefaultRequestHeaders.Host = "sandbox.api.gnsvc.com";
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
+                    client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("deflate"));
+                    client.DefaultRequestHeaders.Add("AdvancedErrorCodes", "True");
+                    // Ping API to ensure we have a valid connection with our credentials
+                    PingApi();
+                }
+            }
+        }
+
+        public GolfNowAPIHandler(string username, string password){
+            TEMP_USERNAME = username;
+            TEMP_PASSWORD = password;
             User user = new User();
             using (HttpClient client = new HttpClient())
             {
@@ -64,12 +87,97 @@ namespace GolfNowAPI
 
                     //Create POST request
                     trace("\n\nStarting customer token request ------------------------------------------------------ \nHeaders:");
-                    trace("POST " + ENDPOINT + "/customers/" + user.getEmail() + "/authentication-token\n" + new StringContent(user.ToJSON() + Encoding.UTF8.ToString()));
+                    trace("POST " + ENDPOINT + "/customers/" + user.EMailAddress + "/authentication-token\n" + new StringContent(user.ToJSON() + Encoding.UTF8.ToString()));
                     trace(client.DefaultRequestHeaders.ToString());
                     //Obtain response and return user token as string
-                    result = client.PostAsync(ENDPOINT + "/customers/" + user.getEmail() + "/authentication-token", new StringContent(user.ToJSON(), Encoding.UTF8, "application/json")).Result;
+                    result = client.PostAsync(ENDPOINT + "/customers/" + user.EMailAddress + "/authentication-token", new StringContent(user.ToJSON(), Encoding.UTF8, "application/json")).Result;
                     trace("Response headers:\n" + result.Headers.ToString());
                     return result.Content.ReadAsStringAsync().Result;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Returns the customer information for the input User
+        /// Note: You MUST authenticate and update the User with the customer token using the CustToken() method before using this!
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>A User object that stores the information for the customer</returns>
+        public static User GetCustomer(User user)
+        {
+            HttpResponseMessage result;
+            using (HttpClient client = new HttpClient())
+            {
+                using (result = new HttpResponseMessage())
+                {
+                    //Create headers
+                    client.DefaultRequestHeaders.Clear();
+                    client.DefaultRequestHeaders.Add("UserName", TEMP_USERNAME);
+                    client.DefaultRequestHeaders.Add("Password", TEMP_PASSWORD);
+                    client.DefaultRequestHeaders.Add("CustomerToken", user.getToken());
+                    client.DefaultRequestHeaders.Host = "sandbox.api.gnsvc.com";
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
+                    client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("deflate"));
+                    client.DefaultRequestHeaders.Add("AdvancedErrorCodes", "True");
+
+                    // Variables to store response objects and create a User to return
+                    IEnumerable<string> value;
+                    User responseUser;
+                    string newToken;
+
+                    //Create GET request
+                    trace("\n\nStarting GetCustomer request ------------------------------------------------------ \nHeaders:");
+                    trace("GET " + ENDPOINT + "/customers/" + user.EMailAddress);
+                    trace(client.DefaultRequestHeaders.ToString());
+                    //Obtain response and deserialize it into a User object
+                    result = client.GetAsync(ENDPOINT + "/customers/" + user.EMailAddress).Result;
+                    result.Headers.TryGetValues("CustomerToken", out value);
+                    newToken = value.FirstOrDefault();
+                    trace("Response headers:\n" + result.Headers.ToString());
+                    responseUser=JsonConvert.DeserializeObject<User>(result.Content.ReadAsStringAsync().Result, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+                    
+                    // Remove quotations from the response to get the token by itself
+                    responseUser.setToken(newToken.Replace("\"",string.Empty));
+                    return (responseUser);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Returns the favorite facility information for the input User
+        /// Note: You MUST authenticate and get the customer token using the CustToken() method before using this!
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>A User object that stores the information for the customer</returns>
+        public static List<Facility> GetFavoriteFacilities(User user)
+        {
+            HttpResponseMessage result;
+            using (HttpClient client = new HttpClient())
+            {
+                using (result = new HttpResponseMessage())
+                {
+                    //Create headers
+                    client.DefaultRequestHeaders.Clear();
+                    client.DefaultRequestHeaders.Add("UserName", TEMP_USERNAME);
+                    client.DefaultRequestHeaders.Add("Password", TEMP_PASSWORD);
+                    client.DefaultRequestHeaders.Add("CustomerToken", user.getToken());
+                    client.DefaultRequestHeaders.Host = "sandbox.api.gnsvc.com";
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
+                    client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("deflate"));
+                    client.DefaultRequestHeaders.Add("AdvancedErrorCodes", "True");
+
+                    //Create GET request
+                    trace("\n\nStarting customer token request ------------------------------------------------------ \nHeaders:");
+                    trace("GET " + ENDPOINT + "/customers/" + user.EMailAddress + "/favorite-facilities?channel=" + CHANNEL_ID);
+                    trace(client.DefaultRequestHeaders.ToString());
+                    //Obtain response and deserialize it into a list of Facility objects
+                    result = client.GetAsync(ENDPOINT + "/customers/" + user.EMailAddress + "/favorite-facilities?channel=" + CHANNEL_ID).Result;
+                    trace("Response headers:\n" + result.Headers.ToString());
+
+                    return (JsonConvert.DeserializeObject<List<Facility>>(result.Content.ReadAsStringAsync().Result, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
+
                 }
             }
         }
@@ -101,7 +209,7 @@ namespace GolfNowAPI
 
                     //Create GET request
                     trace("Starting GetFacilitiesByLocation search ------------------------------------------------------ \nHeaders:");
-                    string formatRequest = String.Format(ENDPOINT + "/channel/7886/facilities?q=geo-location&latitude={0}&longitude={1}&proximity={2}&take={3}", latitude, longitude, proximity, take);
+                    string formatRequest = String.Format(ENDPOINT + "/channel/{4}/facilities?q=geo-location&latitude={0}&longitude={1}&proximity={2}&take={3}", latitude, longitude, proximity, take, CHANNEL_ID);
                     trace(formatRequest); // Output the request uri
                     trace(client.DefaultRequestHeaders.ToString());
                     //Get output and deserialize it into a List of Facility objects
@@ -137,7 +245,7 @@ namespace GolfNowAPI
 
                     //Create GET request
                     trace("Starting GetFacilitiesByCity search ------------------------------------------------------ \nHeaders:");
-                    string formatRequest = String.Format(ENDPOINT + "/channel/7886/facilities?q=country-city-state&country-code={0}&state-province-code={1}&city={2}", city.CountryCode, city.StateCode, city.CityName, take);
+                    string formatRequest = String.Format(ENDPOINT + "/channel/{4}/facilities?q=country-city-state&country-code={0}&state-province-code={1}&city={2}&take={3}", city.CountryCode, city.StateCode, city.CityName, take, CHANNEL_ID);
                     trace(formatRequest); // Output the request uri
                     trace(client.DefaultRequestHeaders.ToString());
                     //Get the response and deserialize it into a List of Facility objects
@@ -217,7 +325,7 @@ namespace GolfNowAPI
                     trace(client.DefaultRequestHeaders.ToString());
                     string date1 = dateMin.AddMinutes(0).ToLocalTime().ToString();
                     string date2 = dateMax.AddDays(0).ToLocalTime().ToString();
-                    string formatRequest = Uri.EscapeUriString($"/channel/7886/facilities/{facilityID}/tee-times?date-min={date1}&date-max={date2}&price-min={priceMin}&price-max={priceMax}&holes={holes}&players={players}&take=3");
+                    string formatRequest = Uri.EscapeUriString($"/channel/{CHANNEL_ID}/facilities/{facilityID}/tee-times?date-min={date1}&date-max={date2}&price-min={priceMin}&price-max={priceMax}&holes={holes}&players={players}&take=3");
                     trace("GET " + ENDPOINT + formatRequest);//Output the uri
                     //Get response and deserialize it into a list of TeeTimes
                     result = client.GetAsync(ENDPOINT + formatRequest).Result;
@@ -256,7 +364,7 @@ namespace GolfNowAPI
                     //Create GET request
                     trace("Starting GetAdjacentTeeTimes search ------------------------------------------------------ \nHeaders:");
                     trace(client.DefaultRequestHeaders.ToString());
-                    string formatRequest = Uri.EscapeUriString($"/channel/7886/facilities/{facilityID}/tee-times/{teeTimeRateID}/adjacent-tee-times?player-count={players}&take={take}");
+                    string formatRequest = Uri.EscapeUriString($"/channel/{CHANNEL_ID}/facilities/{facilityID}/tee-times/{teeTimeRateID}/adjacent-tee-times?player-count={players}&take={take}");
                     trace("GET " + ENDPOINT + formatRequest);// Output the uri
                     //Get response and deserialize it as a List of TeeTime objects
                     result = client.GetAsync(ENDPOINT + formatRequest).Result;
@@ -301,7 +409,7 @@ namespace GolfNowAPI
                     trace("Starting GetTeeTimesByCity search ------------------------------------------------------ \nHeaders:");
                     string date1 = dateMin.ToLocalTime().ToString();
                     string date2 = dateMax.ToLocalTime().ToString();
-                    string formatRequest = Uri.EscapeUriString($"/channel/7886/facilities/tee-times?q=country-city-state&country-code={countryCode}&state-province-code={stateProvinceCode}&city={cityCode}&date-min={dateMin}&date-max={dateMax}&price-min={priceMin}&price-max={priceMax}&holes={holes}&players={players}&take={take}");
+                    string formatRequest = Uri.EscapeUriString($"/channel/{CHANNEL_ID}/facilities/tee-times?q=country-city-state&country-code={countryCode}&state-province-code={stateProvinceCode}&city={cityCode}&date-min={dateMin}&date-max={dateMax}&price-min={priceMin}&price-max={priceMax}&holes={holes}&players={players}&take={take}");
                     trace("GET " + ENDPOINT + formatRequest);// Output the uri
                     trace(client.DefaultRequestHeaders.ToString());
                     //Get response and deserialize it as a List of TeeTime objects

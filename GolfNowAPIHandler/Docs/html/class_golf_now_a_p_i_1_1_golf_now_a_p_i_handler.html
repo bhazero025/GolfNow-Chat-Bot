@@ -66,6 +66,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -73,11 +74,23 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:af61b298c9035059b7bcd9c46caee59ea"><td class="memItemLeft" align="right" valign="top"><a id="af61b298c9035059b7bcd9c46caee59ea"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GolfNowAPIHandler</b> (string username, string password)</td></tr>
+<tr class="separator:af61b298c9035059b7bcd9c46caee59ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae2f95c14f042ab3008642f30b0b93e36"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ae2f95c14f042ab3008642f30b0b93e36">CustToken</a> (<a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> user)</td></tr>
 <tr class="memdesc:ae2f95c14f042ab3008642f30b0b93e36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the authentication token for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a>  <a href="#ae2f95c14f042ab3008642f30b0b93e36">More...</a><br /></td></tr>
 <tr class="separator:ae2f95c14f042ab3008642f30b0b93e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95bf35bea50911d71bdd8e10362a8e1a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a95bf35bea50911d71bdd8e10362a8e1a">GetCustomer</a> (<a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> user)</td></tr>
+<tr class="memdesc:a95bf35bea50911d71bdd8e10362a8e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the customer information for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> Note: You MUST authenticate and update the <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> with the customer token using the <a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ae2f95c14f042ab3008642f30b0b93e36" title="Returns the authentication token for the input User">CustToken()</a> method before using this!  <a href="#a95bf35bea50911d71bdd8e10362a8e1a">More...</a><br /></td></tr>
+<tr class="separator:a95bf35bea50911d71bdd8e10362a8e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad54388536fbf87a169d8fb8f7fe940e1"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ad54388536fbf87a169d8fb8f7fe940e1">GetFavoriteFacilities</a> (<a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> user)</td></tr>
+<tr class="memdesc:ad54388536fbf87a169d8fb8f7fe940e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the favorite facility information for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> Note: You MUST authenticate and get the customer token using the <a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ae2f95c14f042ab3008642f30b0b93e36" title="Returns the authentication token for the input User">CustToken()</a> method before using this!  <a href="#ad54388536fbf87a169d8fb8f7fe940e1">More...</a><br /></td></tr>
+<tr class="separator:ad54388536fbf87a169d8fb8f7fe940e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a944de1a0c317adc059274c10a7d444cd"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a944de1a0c317adc059274c10a7d444cd">GetFacilitiesByLocation</a> (string latitude, string longitude, string proximity=&quot;25&quot;, int take=5)</td></tr>
 <tr class="memdesc:a944de1a0c317adc059274c10a7d444cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses latitude, longitude, and a proximity to find <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> objects meeting the criteria and return them in a List  <a href="#a944de1a0c317adc059274c10a7d444cd">More...</a><br /></td></tr>
 <tr class="separator:a944de1a0c317adc059274c10a7d444cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,7 +133,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -177,7 +190,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -215,7 +228,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -228,6 +241,41 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A List of <a class="el" href="class_golf_now_a_p_i_1_1_city.html">City</a> objects that could match the arguments</dd></dl>
+
+</div>
+</div>
+<a id="a95bf35bea50911d71bdd8e10362a8e1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95bf35bea50911d71bdd8e10362a8e1a">&#9670;&nbsp;</a></span>GetCustomer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> GolfNowAPI.GolfNowAPIHandler.GetCustomer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a>&#160;</td>
+          <td class="paramname"><em>user</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the customer information for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> Note: You MUST authenticate and update the <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> with the customer token using the <a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ae2f95c14f042ab3008642f30b0b93e36" title="Returns the authentication token for the input User">CustToken()</a> method before using this! </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> object that stores the information for the customer</dd></dl>
 
 </div>
 </div>
@@ -260,7 +308,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -318,7 +366,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -366,7 +414,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -380,6 +428,41 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> object matching the input facility ID</dd></dl>
+
+</div>
+</div>
+<a id="ad54388536fbf87a169d8fb8f7fe940e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad54388536fbf87a169d8fb8f7fe940e1">&#9670;&nbsp;</a></span>GetFavoriteFacilities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetFavoriteFacilities </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a>&#160;</td>
+          <td class="paramname"><em>user</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the favorite facility information for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> Note: You MUST authenticate and get the customer token using the <a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ae2f95c14f042ab3008642f30b0b93e36" title="Returns the authentication token for the input User">CustToken()</a> method before using this! </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> object that stores the information for the customer</dd></dl>
 
 </div>
 </div>
@@ -460,7 +543,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -544,7 +627,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -567,7 +650,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/sirch/Documents/GolfNow/GolfNowAPIHandler/GolfNowAPIHandler.cs</li>
+<li>GolfNowAPIHandler.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

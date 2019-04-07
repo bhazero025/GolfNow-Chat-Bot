@@ -1,10 +1,20 @@
 \hypertarget{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler}{}\section{Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler Class Reference}
 \label{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler}\index{GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_af61b298c9035059b7bcd9c46caee59ea}\label{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_af61b298c9035059b7bcd9c46caee59ea}} 
+{\bfseries Golf\+Now\+A\+P\+I\+Handler} (string username, string password)
+\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static string \mbox{\hyperlink{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_ae2f95c14f042ab3008642f30b0b93e36}{Cust\+Token}} (\mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} user)
 \begin{DoxyCompactList}\small\item\em Returns the authentication token for the input \mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} \mbox{\hyperlink{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_a95bf35bea50911d71bdd8e10362a8e1a}{Get\+Customer}} (\mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} user)
+\begin{DoxyCompactList}\small\item\em Returns the customer information for the input \mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} Note\+: You M\+U\+ST authenticate and update the \mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} with the customer token using the \mbox{\hyperlink{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_ae2f95c14f042ab3008642f30b0b93e36}{Cust\+Token()}} method before using this! \end{DoxyCompactList}\item 
+static List$<$ \mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}} $>$ \mbox{\hyperlink{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_ad54388536fbf87a169d8fb8f7fe940e1}{Get\+Favorite\+Facilities}} (\mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} user)
+\begin{DoxyCompactList}\small\item\em Returns the favorite facility information for the input \mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} Note\+: You M\+U\+ST authenticate and get the customer token using the \mbox{\hyperlink{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_ae2f95c14f042ab3008642f30b0b93e36}{Cust\+Token()}} method before using this! \end{DoxyCompactList}\item 
 static List$<$ \mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}} $>$ \mbox{\hyperlink{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_a944de1a0c317adc059274c10a7d444cd}{Get\+Facilities\+By\+Location}} (string latitude, string longitude, string proximity=\char`\"{}25\char`\"{}, int take=5)
 \begin{DoxyCompactList}\small\item\em Uses latitude, longitude, and a proximity to find \mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}} objects meeting the criteria and return them in a List \end{DoxyCompactList}\item 
 static List$<$ \mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}} $>$ \mbox{\hyperlink{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_aaa4165dc6e7f348d02ba4dadfac977c3}{Get\+Facilities\+By\+City}} (\mbox{\hyperlink{class_golf_now_a_p_i_1_1_city}{City}} city, int take=5)
@@ -26,7 +36,7 @@ static List$<$ \mbox{\hyperlink{class_golf_now_a_p_i_1_1_city}{City}} $>$ \mbox{
 \index{GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}!CustToken@{CustToken}}
 \index{CustToken@{CustToken}!GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}}
 \subsubsection{\texorpdfstring{CustToken()}{CustToken()}}
-{\footnotesize\ttfamily static string Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Cust\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}}}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily static string Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Cust\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}}}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -44,7 +54,7 @@ A string holding the authentication token
 \index{GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}!GetAdjacentTeeTimes@{GetAdjacentTeeTimes}}
 \index{GetAdjacentTeeTimes@{GetAdjacentTeeTimes}!GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}}
 \subsubsection{\texorpdfstring{GetAdjacentTeeTimes()}{GetAdjacentTeeTimes()}}
-{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_tee_time}{Tee\+Time}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Adjacent\+Tee\+Times (\begin{DoxyParamCaption}\item[{string}]{tee\+Time\+Rate\+ID,  }\item[{string}]{facility\+ID,  }\item[{string}]{players,  }\item[{int}]{take = {\ttfamily 3} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_tee_time}{Tee\+Time}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Adjacent\+Tee\+Times (\begin{DoxyParamCaption}\item[{string}]{tee\+Time\+Rate\+ID,  }\item[{string}]{facility\+ID,  }\item[{string}]{players,  }\item[{int}]{take = {\ttfamily 3} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -68,7 +78,7 @@ a List of Tee\+Times matching the parameters
 \index{GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}!GetCityInfo@{GetCityInfo}}
 \index{GetCityInfo@{GetCityInfo}!GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}}
 \subsubsection{\texorpdfstring{GetCityInfo()}{GetCityInfo()}}
-{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_city}{City}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+City\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_golf_now_a_p_i_1_1_tees_by_city_args}{Tees\+By\+City\+Args}}}]{city }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_city}{City}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+City\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_golf_now_a_p_i_1_1_tees_by_city_args}{Tees\+By\+City\+Args}}}]{city }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -82,11 +92,29 @@ Attempts to find a city with the input arguments
 \begin{DoxyReturn}{Returns}
 A List of \mbox{\hyperlink{class_golf_now_a_p_i_1_1_city}{City}} objects that could match the arguments
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_a95bf35bea50911d71bdd8e10362a8e1a}\label{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_a95bf35bea50911d71bdd8e10362a8e1a}} 
+\index{GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}!GetCustomer@{GetCustomer}}
+\index{GetCustomer@{GetCustomer}!GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}}
+\subsubsection{\texorpdfstring{GetCustomer()}{GetCustomer()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Customer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}}}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the customer information for the input \mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} Note\+: You M\+U\+ST authenticate and update the \mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} with the customer token using the \mbox{\hyperlink{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_ae2f95c14f042ab3008642f30b0b93e36}{Cust\+Token()}} method before using this! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} object that stores the information for the customer
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_aaa4165dc6e7f348d02ba4dadfac977c3}\label{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_aaa4165dc6e7f348d02ba4dadfac977c3}} 
 \index{GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}!GetFacilitiesByCity@{GetFacilitiesByCity}}
 \index{GetFacilitiesByCity@{GetFacilitiesByCity}!GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}}
 \subsubsection{\texorpdfstring{GetFacilitiesByCity()}{GetFacilitiesByCity()}}
-{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Facilities\+By\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_golf_now_a_p_i_1_1_city}{City}}}]{city,  }\item[{int}]{take = {\ttfamily 5} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Facilities\+By\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_golf_now_a_p_i_1_1_city}{City}}}]{city,  }\item[{int}]{take = {\ttfamily 5} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -106,7 +134,7 @@ A List of \mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}} objects
 \index{GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}!GetFacilitiesByLocation@{GetFacilitiesByLocation}}
 \index{GetFacilitiesByLocation@{GetFacilitiesByLocation}!GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}}
 \subsubsection{\texorpdfstring{GetFacilitiesByLocation()}{GetFacilitiesByLocation()}}
-{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Facilities\+By\+Location (\begin{DoxyParamCaption}\item[{string}]{latitude,  }\item[{string}]{longitude,  }\item[{string}]{proximity = {\ttfamily \char`\"{}25\char`\"{}},  }\item[{int}]{take = {\ttfamily 5} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Facilities\+By\+Location (\begin{DoxyParamCaption}\item[{string}]{latitude,  }\item[{string}]{longitude,  }\item[{string}]{proximity = {\ttfamily \char`\"{}25\char`\"{}},  }\item[{int}]{take = {\ttfamily 5} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -130,7 +158,7 @@ A List of \mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}} objects
 \index{GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}!GetFacilityByID@{GetFacilityByID}}
 \index{GetFacilityByID@{GetFacilityByID}!GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}}
 \subsubsection{\texorpdfstring{GetFacilityByID()}{GetFacilityByID()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}} Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Facility\+By\+ID (\begin{DoxyParamCaption}\item[{string}]{facility\+ID,  }\item[{string}]{channel\+ID = {\ttfamily \char`\"{}7886\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}} Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Facility\+By\+ID (\begin{DoxyParamCaption}\item[{string}]{facility\+ID,  }\item[{string}]{channel\+ID = {\ttfamily \char`\"{}7886\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -146,11 +174,29 @@ Returns a \mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}} object 
 \begin{DoxyReturn}{Returns}
 A \mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}} object matching the input facility ID
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_ad54388536fbf87a169d8fb8f7fe940e1}\label{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_ad54388536fbf87a169d8fb8f7fe940e1}} 
+\index{GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}!GetFavoriteFacilities@{GetFavoriteFacilities}}
+\index{GetFavoriteFacilities@{GetFavoriteFacilities}!GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}}
+\subsubsection{\texorpdfstring{GetFavoriteFacilities()}{GetFavoriteFacilities()}}
+{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_facility}{Facility}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Favorite\+Facilities (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}}}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the favorite facility information for the input \mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} Note\+: You M\+U\+ST authenticate and get the customer token using the \mbox{\hyperlink{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_ae2f95c14f042ab3008642f30b0b93e36}{Cust\+Token()}} method before using this! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{class_golf_now_a_p_i_1_1_user}{User}} object that stores the information for the customer
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_a99d2a8b9ee4da0a3bd0bcf4274b8ee53}\label{class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler_a99d2a8b9ee4da0a3bd0bcf4274b8ee53}} 
 \index{GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}!GetTeeTimesByCity@{GetTeeTimesByCity}}
 \index{GetTeeTimesByCity@{GetTeeTimesByCity}!GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}}
 \subsubsection{\texorpdfstring{GetTeeTimesByCity()}{GetTeeTimesByCity()}}
-{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_tee_time}{Tee\+Time}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Tee\+Times\+By\+City (\begin{DoxyParamCaption}\item[{string}]{country\+Code,  }\item[{string}]{state\+Province\+Code,  }\item[{string}]{city\+Code,  }\item[{Date\+Time}]{date\+Min,  }\item[{Date\+Time}]{date\+Max,  }\item[{float}]{price\+Min = {\ttfamily 0},  }\item[{float}]{price\+Max = {\ttfamily 200},  }\item[{string}]{holes = {\ttfamily \char`\"{}18\char`\"{}},  }\item[{int}]{players = {\ttfamily 1},  }\item[{int}]{take = {\ttfamily 3} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_tee_time}{Tee\+Time}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Tee\+Times\+By\+City (\begin{DoxyParamCaption}\item[{string}]{country\+Code,  }\item[{string}]{state\+Province\+Code,  }\item[{string}]{city\+Code,  }\item[{Date\+Time}]{date\+Min,  }\item[{Date\+Time}]{date\+Max,  }\item[{float}]{price\+Min = {\ttfamily 0},  }\item[{float}]{price\+Max = {\ttfamily 200},  }\item[{string}]{holes = {\ttfamily \char`\"{}18\char`\"{}},  }\item[{int}]{players = {\ttfamily 1},  }\item[{int}]{take = {\ttfamily 3} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -186,7 +232,7 @@ a List object of Tee\+Times matching the parameters
 \index{GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}!GetTeeTimesByFacility@{GetTeeTimesByFacility}}
 \index{GetTeeTimesByFacility@{GetTeeTimesByFacility}!GolfNowAPI.GolfNowAPIHandler@{GolfNowAPI.GolfNowAPIHandler}}
 \subsubsection{\texorpdfstring{GetTeeTimesByFacility()}{GetTeeTimesByFacility()}}
-{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_tee_time}{Tee\+Time}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Tee\+Times\+By\+Facility (\begin{DoxyParamCaption}\item[{string}]{facility\+ID,  }\item[{Date\+Time}]{date\+Min,  }\item[{Date\+Time}]{date\+Max,  }\item[{float}]{price\+Min = {\ttfamily 0},  }\item[{float}]{price\+Max = {\ttfamily 200},  }\item[{string}]{holes = {\ttfamily \char`\"{}18\char`\"{}},  }\item[{int}]{players = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_golf_now_a_p_i_1_1_tee_time}{Tee\+Time}}$>$ Golf\+Now\+A\+P\+I.\+Golf\+Now\+A\+P\+I\+Handler.\+Get\+Tee\+Times\+By\+Facility (\begin{DoxyParamCaption}\item[{string}]{facility\+ID,  }\item[{Date\+Time}]{date\+Min,  }\item[{Date\+Time}]{date\+Max,  }\item[{float}]{price\+Min = {\ttfamily 0},  }\item[{float}]{price\+Max = {\ttfamily 200},  }\item[{string}]{holes = {\ttfamily \char`\"{}18\char`\"{}},  }\item[{int}]{players = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -216,4 +262,4 @@ A List of \mbox{\hyperlink{class_golf_now_a_p_i_1_1_tee_time}{Tee\+Time}} object
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/sirch/\+Documents/\+Golf\+Now/\+Golf\+Now\+A\+P\+I\+Handler/Golf\+Now\+A\+P\+I\+Handler.\+cs\end{DoxyCompactItemize}
+Golf\+Now\+A\+P\+I\+Handler.\+cs\end{DoxyCompactItemize}
