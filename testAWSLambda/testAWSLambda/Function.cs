@@ -34,7 +34,11 @@ namespace testAWSLambda
             IDictionary<string, string> attributes;
             //What (if any) information to populate slots with in the next intent.
             IDictionary<string, string> slots = new Dictionary<string, string>();
-            
+            //The name of the next intent.
+            string nextIntent;
+            //The name of the next slot to elicit.
+            string slotToElicit;
+
             //Detrimine the intent that triggered the logic.
             switch (lexEvent.CurrentIntent.Name)
             {
@@ -46,8 +50,8 @@ namespace testAWSLambda
                 //User wants tee times via a given zip code.
                 case "getTeeTimeByZip":
                     string zip;
-                    string nextIntent = "chooseOption";
-                    string slotToElicit = "option";
+                    nextIntent = "chooseOption";
+                    slotToElicit = "option";
 
                     //Gather user inputs.
                     if (!lexEvent.CurrentIntent.Slots.TryGetValue("zip", out zip))
@@ -66,12 +70,14 @@ namespace testAWSLambda
                     attributes.ToList().ForEach(x => lexEvent.SessionAttributes[x.Key] = x.Value);
 
                     //Elicit the next intent to choose between options.
-                    return elicitSlot(lexEvent.SessionAttributes, nextIntent, slots, slotToElicit, new LexResponse.LexMessage { ContentType = "PlainText", Content = textOut + "Enter the number of a suitable option." });
+                    return elicitSlot(lexEvent.SessionAttributes, nextIntent, slots, slotToElicit, new LexResponse.LexMessage { ContentType = "PlainText", Content = textOut });
                 //User wants tee times via given city, state(optional), and country(optional).
                 case "getTeeTimeByCity":
                     string city;
                     string state;
                     string country;
+                    nextIntent = "chooseOption";
+                    slotToElicit = "option";
 
                     //Gather user inputs.
                     if (!lexEvent.CurrentIntent.Slots.TryGetValue("city", out city))
@@ -92,8 +98,8 @@ namespace testAWSLambda
                     attributes.Remove("output");
                     //add options to lexEvent Session Attribute vars that we will perserve.
                     attributes.ToList().ForEach(x => lexEvent.SessionAttributes[x.Key] = x.Value);
-
-                    return Close(lexEvent.SessionAttributes, "Fulfilled", new LexResponse.LexMessage { ContentType = "PlainText", Content = textOut });
+                    
+                    return elicitSlot(lexEvent.SessionAttributes, nextIntent, slots, slotToElicit, new LexResponse.LexMessage { ContentType = "PlainText", Content = textOut });
                 //The user has been presented with options and has chosen one.
                 case "chooseOption":
                     //the index of the option chosen.

@@ -65,12 +65,19 @@ namespace testAWSLambda
                 }
             }
 
-            if (output["output"] == "")
+            if (output["output"] == "" || output == null || output["output"] == "Error getting response.")
                 output["output"] = "Sorry, no tee times were found with that information...";
 
             return output;
         }
 
+        /// <summary>
+        /// Reads out the information about the users selection.
+        /// </summary>
+        /// <param name="client">Object for making HTTP requests.</param>
+        /// <param name="result">Object holding the response of the HTTP request.</param>
+        /// <param name="invoiceArgs">The arguments for creating an invoice.</param>
+        /// <returns>Key-value dictionary of the returned information.</returns>
         private IDictionary<string, string> GetRateInvoice(HttpClient client, HttpResponseMessage result, RateInvoiceArgs invoiceArgs)
         {
             result = client.GetAsync(ENDPOINT + $"/channel/7886/facilities/{invoiceArgs.FacilityID}/tee-times/{invoiceArgs.RateID}/invoice?player-count=1").Result;
@@ -78,20 +85,9 @@ namespace testAWSLambda
 
             IDictionary<string, string> keyValuePairs = new Dictionary<string, string>();
             keyValuePairs.Add("output", $"Ok, so that's {rateResponse.RateName}: {rateResponse.TeeTimeNotes} - " +
-                $"That'll be ${rateResponse.DueAtCourse.Summary.Total} due at the course and ${rateResponse.DueOnline.Summary.Total} due online. Sound good?");
-            return keyValuePairs;
-        }
+                $"That'll be ${rateResponse.DueAtCourse.Summary.Total} due at the course and ${rateResponse.DueOnline.Summary.Total} due online. Sound good?"); //{rateResponse.TeeTimeRateID}");
 
-        /// <summary>
-        /// Test for checking the API.
-        /// </summary>
-        /// <param name="client">Object for making HTTP requests.</param>
-        /// <param name="result">Object holding the response of the HTTP request.</param>
-        /// <returns>The body of the response</returns>
-        private string GetFacility(HttpClient client, HttpResponseMessage result)
-        {
-            result = client.GetAsync(ENDPOINT + "/channel/7886/facilities?q=geo-location&latitude=28.4158&longitude=-81.2989&proximity=25").Result;
-            return result.Content.ReadAsStringAsync().Result;
+            return keyValuePairs;
         }
 
         /// <summary>
@@ -109,7 +105,7 @@ namespace testAWSLambda
             FacilitiesResponse facilities = new FacilitiesResponse(JsonConvert.DeserializeObject<List<Facility>>(result.Content.ReadAsStringAsync().Result));
 
             //Send facilites to be searched for tee times. Return K/V pair array of results.
-            return getTeeTimesByFacilities(client, result, facilities);
+            return getTeeTimesByFacilities(client, result, facilities, zip.Time);
         }
 
         /// <summary>
@@ -133,7 +129,7 @@ namespace testAWSLambda
             }
 
             //Send facilites to be searched for tee times. Return K/V pair array of results.
-            return getTeeTimesByFacilities(client, result, facilities);
+            return getTeeTimesByFacilities(client, result, facilities, city.Time);
         }
 
         /// <summary>
@@ -143,15 +139,23 @@ namespace testAWSLambda
         /// <param name="result">Object holding the response of the HTTP request.</param>
         /// <param name="facilities">The list of facilities to be searched.</param>
         /// <returns>Key-Value paris of the returned TeeTimes by Facility.</returns>
-        private static IDictionary<string, string> getTeeTimesByFacilities(HttpClient client, HttpResponseMessage result, FacilitiesResponse facilities)
+        private static IDictionary<string, string> getTeeTimesByFacilities(HttpClient client, HttpResponseMessage result, FacilitiesResponse facilities, string time)
         {
-            DateTime currentTime = DateTime.Now;
-            string localDateMin = currentTime.AddMinutes(-30).ToLocalTime().ToString();
-            string localDateMax = currentTime.AddHours(23).ToLocalTime().ToString();
+            IDictionary<string, string> rateOptions = new Dictionary<string, string>();
+
+            if (facilities.Facilities.Count == 0)
+                return rateOptions;
+
+            DateTime scheduleTime = Convert.ToDateTime(time);
+
+            while (scheduleTime < DateTime.Now)
+                scheduleTime = scheduleTime.AddHours(24);
+                
+            string localDateMin = scheduleTime.AddMinutes(-15).ToLocalTime().ToString();
+            string localDateMax = scheduleTime.AddHours(2).ToLocalTime().ToString();
             result = client.GetAsync(ENDPOINT + Uri.EscapeUriString($"/channel/7886/facilities/tee-times?q=multi-facilities&facilityids={string.Join("|", facilities.GetIDs())}&date-min={localDateMin}&date-max={localDateMax}&take=3")).Result;
             TeeTimesResponse teeTimesResponse = JsonConvert.DeserializeObject<TeeTimesResponse>(result.Content.ReadAsStringAsync().Result);
 
-            IDictionary<string, string> rateOptions = new Dictionary<string, string>();
 
             string output = "";
             int optionNumb = 1;
@@ -161,7 +165,7 @@ namespace testAWSLambda
                 {
                     if(facility.ID == teeTimesResponse.TeeTimes[i].FacilityID)
                     {
-                        output += facility.Name + " : - ";
+                        output += facility.Name + " " + teeTimesResponse.TeeTimes[i].Time.ToLocalTime() + " : - ";
                     }
                 }
                 for (int x = 0; x < 4 && x < teeTimesResponse.TeeTimes[i].Rates.Count; x++)
@@ -181,6 +185,9 @@ namespace testAWSLambda
                 }
             }
 
+            if (teeTimesResponse.TeeTimes.Count > 0)
+                output += "Enter the number of a suitable option.";
+
             rateOptions.Add("output", output);
 
             return rateOptions;
@@ -197,43 +204,77 @@ namespace testAWSLambda
         {
             List<City> possibleMatchs = new List<City>();
             //Get all countries
-            result = client.GetAsync(ENDPOINT + "/channel/7886/countries?fields=CountryCode").Result;
-            var countries = JArray.Parse(result.Content.ReadAsStringAsync().Result);
-            string[] countryCode = new string[countries.Count];
-            for (int i = 0; i < countryCode.Length; i++)
+            string[] countryCode;
+            if (city.Country != null && city.Country.Length <= 2)
+                countryCode = new string[] { city.Country };
+            else
             {
-                string value = countries[i]["CountryCode"].Value<string>();
-                if (value == "US")
+                try
                 {
-                    countryCode[i] = countryCode[0];
-                    countryCode[0] = value;
+                    result = client.GetAsync(ENDPOINT + "/channel/7886/countries?fields=CountryCode").Result;
+                } catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
                 }
-                else if (value == "CA")
+                var countries = JArray.Parse(result.Content.ReadAsStringAsync().Result);
+                countryCode = new string[countries.Count];
+                for (int i = 0; i < countryCode.Length; i++)
                 {
-                    countryCode[i] = countryCode[1];
-                    countryCode[1] = value;
-                }
-                else
-                {
-                    countryCode[i] = value;
+                    string value = countries[i]["CountryCode"].Value<string>();
+                    if (value == "US")
+                    {
+                        countryCode[i] = countryCode[0];
+                        countryCode[0] = value;
+                    }
+                    else if (value == "CA")
+                    {
+                        countryCode[i] = countryCode[1];
+                        countryCode[1] = value;
+                    }
+                    else
+                    {
+                        countryCode[i] = value;
+                    }
                 }
             }
 
             //Search all states
             foreach (string country in countryCode)
             {
-                result = client.GetAsync(ENDPOINT + "/channel/7886/countries/" + country + "/state-provinces?fields=StateProvinceCode").Result;
-                var states = JArray.Parse(result.Content.ReadAsStringAsync().Result);
-                string[] stateCode = new string[states.Count];
-                for (int i = 0; i < stateCode.Length; i++)
+                string[] stateCode;
+                if (city.State != null && city.State.Length <= 2)
+                    stateCode = new string[] { city.State };
+                else
                 {
-                    stateCode[i] = states[i]["StateProvinceCode"].Value<string>();
+                    try
+                    {
+                        result = client.GetAsync(ENDPOINT + "/channel/7886/countries/" + country + "/state-provinces?fields=StateProvinceCode").Result;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                    
+                    var states = JArray.Parse(result.Content.ReadAsStringAsync().Result);
+                    stateCode = new string[states.Count];
+                    for (int i = 0; i < stateCode.Length; i++)
+                    {
+                        stateCode[i] = states[i]["StateProvinceCode"].Value<string>();
+                    }
                 }
 
                 //search for cities
                 foreach (string state in stateCode)
                 {
-                    result = client.GetAsync(ENDPOINT + "/channel/7886/countries/" + country + "/state-provinces/" + state + "/cities?fields=CityName").Result;
+                    try
+                    {
+                        result = client.GetAsync(ENDPOINT + "/channel/7886/countries/" + country + "/state-provinces/" + state + "/cities?fields=CityName").Result;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+
                     var cities = JArray.Parse(result.Content.ReadAsStringAsync().Result);
                     string[] cityName = new string[cities.Count];
                     for (int i = 0; i < cityName.Length; i++)
