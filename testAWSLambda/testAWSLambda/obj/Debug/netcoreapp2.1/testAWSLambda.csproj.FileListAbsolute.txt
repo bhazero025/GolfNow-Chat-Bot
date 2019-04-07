@@ -1,0 +1,11 @@
+C:\Users\Andrew\source\repos\testAWSLambda\testAWSLambda\bin\Debug\netcoreapp2.1\testAWSLambda.deps.json
+C:\Users\Andrew\source\repos\testAWSLambda\testAWSLambda\bin\Debug\netcoreapp2.1\testAWSLambda.runtimeconfig.json
+C:\Users\Andrew\source\repos\testAWSLambda\testAWSLambda\bin\Debug\netcoreapp2.1\testAWSLambda.runtimeconfig.dev.json
+C:\Users\Andrew\source\repos\testAWSLambda\testAWSLambda\bin\Debug\netcoreapp2.1\testAWSLambda.dll
+C:\Users\Andrew\source\repos\testAWSLambda\testAWSLambda\bin\Debug\netcoreapp2.1\testAWSLambda.pdb
+C:\Users\Andrew\source\repos\testAWSLambda\testAWSLambda\obj\Debug\netcoreapp2.1\testAWSLambda.csprojAssemblyReference.cache
+C:\Users\Andrew\source\repos\testAWSLambda\testAWSLambda\obj\Debug\netcoreapp2.1\testAWSLambda.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\source\repos\testAWSLambda\testAWSLambda\obj\Debug\netcoreapp2.1\testAWSLambda.AssemblyInfoInputs.cache
+C:\Users\Andrew\source\repos\testAWSLambda\testAWSLambda\obj\Debug\netcoreapp2.1\testAWSLambda.AssemblyInfo.cs
+C:\Users\Andrew\source\repos\testAWSLambda\testAWSLambda\obj\Debug\netcoreapp2.1\testAWSLambda.dll
+C:\Users\Andrew\source\repos\testAWSLambda\testAWSLambda\obj\Debug\netcoreapp2.1\testAWSLambda.pdb

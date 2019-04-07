@@ -9,5 +9,7 @@ namespace GolfNow.iOS
         public MessageCell (IntPtr handle) : base (handle)
         {
         }
+
+   
     }
 }
