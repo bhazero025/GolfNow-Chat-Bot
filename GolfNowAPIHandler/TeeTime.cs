@@ -17,12 +17,13 @@ namespace GolfNowAPI
     
         override public string ToString()
         {
-            return string.Format("Tee Time Rate ID: {0}\nFacility ID: {1}\nTime: {2}\nPlayerRule: {3}", DisplayRate.TeeTimeRateID, FacilityID, Time.ToString(), PlayerRule);
+            return string.Format("Tee Time Rate ID: {0}\nFacility ID: {1}\nTime: {2}\nPrice: {3}\nPlayerRule: {4}", DisplayRate.TeeTimeRateID, FacilityID, Time.ToString(), GetPrice(),PlayerRule);
         }
 
         public string GetPrice()
         {
-            return DisplayRate.SinglePlayerPrice.TotalDue.Value.ToString();
+            //TODO: Better price calculation
+            return DisplayRate.SinglePlayerPrice.MarketRate.Value.ToString(); 
         }
     }
 }

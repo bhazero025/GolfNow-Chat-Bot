@@ -67,7 +67,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">GolfNowAPI.GolfNowAPIHandler Class Reference</div>  </div>
@@ -76,46 +75,43 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af61b298c9035059b7bcd9c46caee59ea"><td class="memItemLeft" align="right" valign="top"><a id="af61b298c9035059b7bcd9c46caee59ea"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GolfNowAPIHandler</b> (string username, string password)</td></tr>
-<tr class="separator:af61b298c9035059b7bcd9c46caee59ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae2f95c14f042ab3008642f30b0b93e36"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ae2f95c14f042ab3008642f30b0b93e36">CustToken</a> (<a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> user)</td></tr>
-<tr class="memdesc:ae2f95c14f042ab3008642f30b0b93e36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the authentication token for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a>  <a href="#ae2f95c14f042ab3008642f30b0b93e36">More...</a><br /></td></tr>
-<tr class="separator:ae2f95c14f042ab3008642f30b0b93e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95bf35bea50911d71bdd8e10362a8e1a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a95bf35bea50911d71bdd8e10362a8e1a">GetCustomer</a> (<a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> user)</td></tr>
-<tr class="memdesc:a95bf35bea50911d71bdd8e10362a8e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the customer information for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> Note: You MUST authenticate and update the <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> with the customer token using the <a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ae2f95c14f042ab3008642f30b0b93e36" title="Returns the authentication token for the input User">CustToken()</a> method before using this!  <a href="#a95bf35bea50911d71bdd8e10362a8e1a">More...</a><br /></td></tr>
-<tr class="separator:a95bf35bea50911d71bdd8e10362a8e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad54388536fbf87a169d8fb8f7fe940e1"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ad54388536fbf87a169d8fb8f7fe940e1">GetFavoriteFacilities</a> (<a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> user)</td></tr>
-<tr class="memdesc:ad54388536fbf87a169d8fb8f7fe940e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the favorite facility information for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> Note: You MUST authenticate and get the customer token using the <a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ae2f95c14f042ab3008642f30b0b93e36" title="Returns the authentication token for the input User">CustToken()</a> method before using this!  <a href="#ad54388536fbf87a169d8fb8f7fe940e1">More...</a><br /></td></tr>
-<tr class="separator:ad54388536fbf87a169d8fb8f7fe940e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a944de1a0c317adc059274c10a7d444cd"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a944de1a0c317adc059274c10a7d444cd">GetFacilitiesByLocation</a> (string latitude, string longitude, string proximity=&quot;25&quot;, int take=5)</td></tr>
-<tr class="memdesc:a944de1a0c317adc059274c10a7d444cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses latitude, longitude, and a proximity to find <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> objects meeting the criteria and return them in a List  <a href="#a944de1a0c317adc059274c10a7d444cd">More...</a><br /></td></tr>
-<tr class="separator:a944de1a0c317adc059274c10a7d444cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa4165dc6e7f348d02ba4dadfac977c3"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#aaa4165dc6e7f348d02ba4dadfac977c3">GetFacilitiesByCity</a> (<a class="el" href="class_golf_now_a_p_i_1_1_city.html">City</a> city, int take=5)</td></tr>
-<tr class="memdesc:aaa4165dc6e7f348d02ba4dadfac977c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a List object holding <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> objects that represent the facilities in the <a class="el" href="class_golf_now_a_p_i_1_1_city.html">City</a> parameter  <a href="#aaa4165dc6e7f348d02ba4dadfac977c3">More...</a><br /></td></tr>
-<tr class="separator:aaa4165dc6e7f348d02ba4dadfac977c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a138feb411a0ff70a56592cc27fc21871"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a138feb411a0ff70a56592cc27fc21871">GetFacilityByID</a> (string facilityID, string channelID=&quot;7886&quot;)</td></tr>
-<tr class="memdesc:a138feb411a0ff70a56592cc27fc21871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> object representing the facility with the input facility ID parameter  <a href="#a138feb411a0ff70a56592cc27fc21871">More...</a><br /></td></tr>
-<tr class="separator:a138feb411a0ff70a56592cc27fc21871"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a706be4f71d1c4a8f34281a4c364c98a1"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a706be4f71d1c4a8f34281a4c364c98a1">GetTeeTimesByFacility</a> (string facilityID, DateTime dateMin, DateTime dateMax, float priceMin=0, float priceMax=200, string holes=&quot;18&quot;, int players=1)</td></tr>
-<tr class="memdesc:a706be4f71d1c4a8f34281a4c364c98a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of TeeTimes from the facility with the matching facility ID parameter  <a href="#a706be4f71d1c4a8f34281a4c364c98a1">More...</a><br /></td></tr>
-<tr class="separator:a706be4f71d1c4a8f34281a4c364c98a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b8fc4a17e1a9a19354d6d3639351578"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a0b8fc4a17e1a9a19354d6d3639351578">GetAdjacentTeeTimes</a> (string teeTimeRateID, string facilityID, string players, int take=3)</td></tr>
-<tr class="memdesc:a0b8fc4a17e1a9a19354d6d3639351578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains a list of TeeTimes that are close in time to the one with the input TeeTimeRateID Note: The first response is the same <a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a> as the input one(Because it is most similar).  <a href="#a0b8fc4a17e1a9a19354d6d3639351578">More...</a><br /></td></tr>
-<tr class="separator:a0b8fc4a17e1a9a19354d6d3639351578"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99d2a8b9ee4da0a3bd0bcf4274b8ee53"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a99d2a8b9ee4da0a3bd0bcf4274b8ee53">GetTeeTimesByCity</a> (string countryCode, string stateProvinceCode, string cityCode, DateTime dateMin, DateTime dateMax, float priceMin=0, float priceMax=200, string holes=&quot;18&quot;, int players=1, int take=3)</td></tr>
-<tr class="memdesc:a99d2a8b9ee4da0a3bd0bcf4274b8ee53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses input country code, state/province code, and city name with some parameters to find TeeTimes that match  <a href="#a99d2a8b9ee4da0a3bd0bcf4274b8ee53">More...</a><br /></td></tr>
-<tr class="separator:a99d2a8b9ee4da0a3bd0bcf4274b8ee53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05c9ab04974f8a19c8d32f79e60be5a1"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_city.html">City</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a05c9ab04974f8a19c8d32f79e60be5a1">GetCityInfo</a> (<a class="el" href="class_golf_now_a_p_i_1_1_tees_by_city_args.html">TeesByCityArgs</a> city)</td></tr>
-<tr class="memdesc:a05c9ab04974f8a19c8d32f79e60be5a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to find a city with the input arguments  <a href="#a05c9ab04974f8a19c8d32f79e60be5a1">More...</a><br /></td></tr>
-<tr class="separator:a05c9ab04974f8a19c8d32f79e60be5a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88d9644187d4f2eaf4b3a7f923a4f0ce"><td class="memItemLeft" align="right" valign="top"><a id="a88d9644187d4f2eaf4b3a7f923a4f0ce"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GolfNowAPIHandler</b> (string username, string password, string channelID=&quot;7886&quot;)</td></tr>
+<tr class="separator:a88d9644187d4f2eaf4b3a7f923a4f0ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ba0b542b68c1e48166b59c6d6b167fd"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a8ba0b542b68c1e48166b59c6d6b167fd">CustToken</a> (<a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> user)</td></tr>
+<tr class="memdesc:a8ba0b542b68c1e48166b59c6d6b167fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the authentication token for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a>  <a href="#a8ba0b542b68c1e48166b59c6d6b167fd">More...</a><br /></td></tr>
+<tr class="separator:a8ba0b542b68c1e48166b59c6d6b167fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a358e41a9bc610ea0b95aeeb6d046b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a8a358e41a9bc610ea0b95aeeb6d046b0">GetCustomer</a> (<a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> user)</td></tr>
+<tr class="memdesc:a8a358e41a9bc610ea0b95aeeb6d046b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the customer information for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> Note: You MUST authenticate and update the <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> with the customer token using the <a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a8ba0b542b68c1e48166b59c6d6b167fd" title="Returns the authentication token for the input User">CustToken()</a> method before using this!  <a href="#a8a358e41a9bc610ea0b95aeeb6d046b0">More...</a><br /></td></tr>
+<tr class="separator:a8a358e41a9bc610ea0b95aeeb6d046b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e139fbfbe2136b94d26c1c87d8a737b"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a9e139fbfbe2136b94d26c1c87d8a737b">GetFavoriteFacilities</a> (<a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> user)</td></tr>
+<tr class="memdesc:a9e139fbfbe2136b94d26c1c87d8a737b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the favorite facility information for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> Note: You MUST authenticate and get the customer token using the <a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a8ba0b542b68c1e48166b59c6d6b167fd" title="Returns the authentication token for the input User">CustToken()</a> method before using this!  <a href="#a9e139fbfbe2136b94d26c1c87d8a737b">More...</a><br /></td></tr>
+<tr class="separator:a9e139fbfbe2136b94d26c1c87d8a737b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98f9a1d8ee47db7d33b6b76ccfc8cb5e"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a98f9a1d8ee47db7d33b6b76ccfc8cb5e">GetFacilitiesByLocation</a> (string latitude, string longitude, string proximity=&quot;25&quot;, int take=5)</td></tr>
+<tr class="memdesc:a98f9a1d8ee47db7d33b6b76ccfc8cb5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses latitude, longitude, and a proximity to find <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> objects meeting the criteria and return them in a List  <a href="#a98f9a1d8ee47db7d33b6b76ccfc8cb5e">More...</a><br /></td></tr>
+<tr class="separator:a98f9a1d8ee47db7d33b6b76ccfc8cb5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a075e65b0fa1732030985ab11a1efe429"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a075e65b0fa1732030985ab11a1efe429">GetFacilitiesByCity</a> (<a class="el" href="class_golf_now_a_p_i_1_1_city.html">City</a> city, int take=5)</td></tr>
+<tr class="memdesc:a075e65b0fa1732030985ab11a1efe429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a List object holding <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> objects that represent the facilities in the <a class="el" href="class_golf_now_a_p_i_1_1_city.html">City</a> parameter  <a href="#a075e65b0fa1732030985ab11a1efe429">More...</a><br /></td></tr>
+<tr class="separator:a075e65b0fa1732030985ab11a1efe429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0c91d6d6039da17040e8c3012a1b029"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#aa0c91d6d6039da17040e8c3012a1b029">GetFacilityByID</a> (string facilityID, string channelID=&quot;7886&quot;)</td></tr>
+<tr class="memdesc:aa0c91d6d6039da17040e8c3012a1b029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> object representing the facility with the input facility ID parameter  <a href="#aa0c91d6d6039da17040e8c3012a1b029">More...</a><br /></td></tr>
+<tr class="separator:aa0c91d6d6039da17040e8c3012a1b029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6cdb505b87125d08807af01c2d3341"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a5f6cdb505b87125d08807af01c2d3341">GetTeeTimesByFacility</a> (string facilityID, DateTime dateMin, DateTime dateMax, float priceMin=0, float priceMax=200, string holes=&quot;18&quot;, int players=1)</td></tr>
+<tr class="memdesc:a5f6cdb505b87125d08807af01c2d3341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of TeeTimes from the facility with the matching facility ID parameter  <a href="#a5f6cdb505b87125d08807af01c2d3341">More...</a><br /></td></tr>
+<tr class="separator:a5f6cdb505b87125d08807af01c2d3341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a851716215095e024dee5add6c861cb4a"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a851716215095e024dee5add6c861cb4a">GetAdjacentTeeTimes</a> (string teeTimeRateID, string facilityID, string players, int take=3)</td></tr>
+<tr class="memdesc:a851716215095e024dee5add6c861cb4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains a list of TeeTimes that are close in time to the one with the input TeeTimeRateID Note: The first response is the same <a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a> as the input one(Because it is most similar).  <a href="#a851716215095e024dee5add6c861cb4a">More...</a><br /></td></tr>
+<tr class="separator:a851716215095e024dee5add6c861cb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf93dac9ec215cd0d6574d9e4c8de096"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#aaf93dac9ec215cd0d6574d9e4c8de096">GetTeeTimesByCity</a> (string countryCode, string stateProvinceCode, string cityCode, DateTime dateMin, DateTime dateMax, float priceMin=0, float priceMax=200, string holes=&quot;18&quot;, int players=1, int take=3)</td></tr>
+<tr class="memdesc:aaf93dac9ec215cd0d6574d9e4c8de096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses input country code, state/province code, and city name with some parameters to find TeeTimes that match  <a href="#aaf93dac9ec215cd0d6574d9e4c8de096">More...</a><br /></td></tr>
+<tr class="separator:aaf93dac9ec215cd0d6574d9e4c8de096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5e24ebfbcb30d11d8f8a0f663e4c794"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_golf_now_a_p_i_1_1_city.html">City</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ab5e24ebfbcb30d11d8f8a0f663e4c794">GetCityInfo</a> (<a class="el" href="class_golf_now_a_p_i_1_1_tees_by_city_args.html">TeesByCityArgs</a> city)</td></tr>
+<tr class="memdesc:ab5e24ebfbcb30d11d8f8a0f663e4c794"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to find a city with the input arguments  <a href="#ab5e24ebfbcb30d11d8f8a0f663e4c794">More...</a><br /></td></tr>
+<tr class="separator:ab5e24ebfbcb30d11d8f8a0f663e4c794"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae2f95c14f042ab3008642f30b0b93e36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2f95c14f042ab3008642f30b0b93e36">&#9670;&nbsp;</a></span>CustToken()</h2>
+<a id="a8ba0b542b68c1e48166b59c6d6b167fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ba0b542b68c1e48166b59c6d6b167fd">&#9670;&nbsp;</a></span>CustToken()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,7 +120,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static string GolfNowAPI.GolfNowAPIHandler.CustToken </td>
+          <td class="memname">string GolfNowAPI.GolfNowAPIHandler.CustToken </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a>&#160;</td>
           <td class="paramname"><em>user</em></td><td>)</td>
@@ -133,7 +129,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -149,8 +145,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0b8fc4a17e1a9a19354d6d3639351578"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b8fc4a17e1a9a19354d6d3639351578">&#9670;&nbsp;</a></span>GetAdjacentTeeTimes()</h2>
+<a id="a851716215095e024dee5add6c861cb4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a851716215095e024dee5add6c861cb4a">&#9670;&nbsp;</a></span>GetAdjacentTeeTimes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,7 +155,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetAdjacentTeeTimes </td>
+          <td class="memname">List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetAdjacentTeeTimes </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>teeTimeRateID</em>, </td>
@@ -190,7 +186,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -209,8 +205,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a05c9ab04974f8a19c8d32f79e60be5a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05c9ab04974f8a19c8d32f79e60be5a1">&#9670;&nbsp;</a></span>GetCityInfo()</h2>
+<a id="ab5e24ebfbcb30d11d8f8a0f663e4c794"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5e24ebfbcb30d11d8f8a0f663e4c794">&#9670;&nbsp;</a></span>GetCityInfo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,7 +215,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_city.html">City</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetCityInfo </td>
+          <td class="memname">List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_city.html">City</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetCityInfo </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_golf_now_a_p_i_1_1_tees_by_city_args.html">TeesByCityArgs</a>&#160;</td>
           <td class="paramname"><em>city</em></td><td>)</td>
@@ -228,7 +224,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -244,8 +240,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a95bf35bea50911d71bdd8e10362a8e1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95bf35bea50911d71bdd8e10362a8e1a">&#9670;&nbsp;</a></span>GetCustomer()</h2>
+<a id="a8a358e41a9bc610ea0b95aeeb6d046b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a358e41a9bc610ea0b95aeeb6d046b0">&#9670;&nbsp;</a></span>GetCustomer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -254,7 +250,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> GolfNowAPI.GolfNowAPIHandler.GetCustomer </td>
+          <td class="memname"><a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> GolfNowAPI.GolfNowAPIHandler.GetCustomer </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a>&#160;</td>
           <td class="paramname"><em>user</em></td><td>)</td>
@@ -263,12 +259,12 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the customer information for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> Note: You MUST authenticate and update the <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> with the customer token using the <a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ae2f95c14f042ab3008642f30b0b93e36" title="Returns the authentication token for the input User">CustToken()</a> method before using this! </p>
+<p>Returns the customer information for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> Note: You MUST authenticate and update the <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> with the customer token using the <a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a8ba0b542b68c1e48166b59c6d6b167fd" title="Returns the authentication token for the input User">CustToken()</a> method before using this! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">user</td><td></td></tr>
@@ -279,8 +275,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aaa4165dc6e7f348d02ba4dadfac977c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa4165dc6e7f348d02ba4dadfac977c3">&#9670;&nbsp;</a></span>GetFacilitiesByCity()</h2>
+<a id="a075e65b0fa1732030985ab11a1efe429"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a075e65b0fa1732030985ab11a1efe429">&#9670;&nbsp;</a></span>GetFacilitiesByCity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,7 +285,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetFacilitiesByCity </td>
+          <td class="memname">List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetFacilitiesByCity </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_golf_now_a_p_i_1_1_city.html">City</a>&#160;</td>
           <td class="paramname"><em>city</em>, </td>
@@ -308,7 +304,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -325,8 +321,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a944de1a0c317adc059274c10a7d444cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a944de1a0c317adc059274c10a7d444cd">&#9670;&nbsp;</a></span>GetFacilitiesByLocation()</h2>
+<a id="a98f9a1d8ee47db7d33b6b76ccfc8cb5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98f9a1d8ee47db7d33b6b76ccfc8cb5e">&#9670;&nbsp;</a></span>GetFacilitiesByLocation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,7 +331,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetFacilitiesByLocation </td>
+          <td class="memname">List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetFacilitiesByLocation </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>latitude</em>, </td>
@@ -366,7 +362,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -385,8 +381,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a138feb411a0ff70a56592cc27fc21871"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a138feb411a0ff70a56592cc27fc21871">&#9670;&nbsp;</a></span>GetFacilityByID()</h2>
+<a id="aa0c91d6d6039da17040e8c3012a1b029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0c91d6d6039da17040e8c3012a1b029">&#9670;&nbsp;</a></span>GetFacilityByID()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -395,7 +391,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> GolfNowAPI.GolfNowAPIHandler.GetFacilityByID </td>
+          <td class="memname"><a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a> GolfNowAPI.GolfNowAPIHandler.GetFacilityByID </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>facilityID</em>, </td>
@@ -414,7 +410,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -431,8 +427,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad54388536fbf87a169d8fb8f7fe940e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad54388536fbf87a169d8fb8f7fe940e1">&#9670;&nbsp;</a></span>GetFavoriteFacilities()</h2>
+<a id="a9e139fbfbe2136b94d26c1c87d8a737b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e139fbfbe2136b94d26c1c87d8a737b">&#9670;&nbsp;</a></span>GetFavoriteFacilities()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -441,7 +437,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetFavoriteFacilities </td>
+          <td class="memname">List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_facility.html">Facility</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetFavoriteFacilities </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a>&#160;</td>
           <td class="paramname"><em>user</em></td><td>)</td>
@@ -450,12 +446,12 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the favorite facility information for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> Note: You MUST authenticate and get the customer token using the <a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#ae2f95c14f042ab3008642f30b0b93e36" title="Returns the authentication token for the input User">CustToken()</a> method before using this! </p>
+<p>Returns the favorite facility information for the input <a class="el" href="class_golf_now_a_p_i_1_1_user.html">User</a> Note: You MUST authenticate and get the customer token using the <a class="el" href="class_golf_now_a_p_i_1_1_golf_now_a_p_i_handler.html#a8ba0b542b68c1e48166b59c6d6b167fd" title="Returns the authentication token for the input User">CustToken()</a> method before using this! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">user</td><td></td></tr>
@@ -466,8 +462,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a99d2a8b9ee4da0a3bd0bcf4274b8ee53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99d2a8b9ee4da0a3bd0bcf4274b8ee53">&#9670;&nbsp;</a></span>GetTeeTimesByCity()</h2>
+<a id="aaf93dac9ec215cd0d6574d9e4c8de096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf93dac9ec215cd0d6574d9e4c8de096">&#9670;&nbsp;</a></span>GetTeeTimesByCity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -476,7 +472,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetTeeTimesByCity </td>
+          <td class="memname">List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetTeeTimesByCity </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>countryCode</em>, </td>
@@ -543,7 +539,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -568,8 +564,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a706be4f71d1c4a8f34281a4c364c98a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a706be4f71d1c4a8f34281a4c364c98a1">&#9670;&nbsp;</a></span>GetTeeTimesByFacility()</h2>
+<a id="a5f6cdb505b87125d08807af01c2d3341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f6cdb505b87125d08807af01c2d3341">&#9670;&nbsp;</a></span>GetTeeTimesByFacility()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -578,7 +574,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetTeeTimesByFacility </td>
+          <td class="memname">List&lt;<a class="el" href="class_golf_now_a_p_i_1_1_tee_time.html">TeeTime</a>&gt; GolfNowAPI.GolfNowAPIHandler.GetTeeTimesByFacility </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>facilityID</em>, </td>
@@ -627,7 +623,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -650,7 +646,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>GolfNowAPIHandler.cs</li>
+<li>C:/Users/sirch/Documents/GolfNow/GolfNowAPIHandler/GolfNowAPIHandler.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
