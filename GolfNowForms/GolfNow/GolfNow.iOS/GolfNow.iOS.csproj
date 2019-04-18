@@ -157,4 +157,8 @@
       <Name>GolfNow</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\golf.jpeg" />
+    <BundleResource Include="Resources\golf.jpg" />
+  </ItemGroup>
 </Project>
