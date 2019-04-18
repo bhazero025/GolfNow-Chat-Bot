@@ -51,22 +51,42 @@ namespace GolfNow
 
         async void SendMessage(object sender, EventArgs e)
         {
-            listView.BeginRefresh();
+            try
+            {
+                listView.BeginRefresh();
 
-            PostTextRequest request = new PostTextRequest();
-            request.BotName = "GolfNowReservation";
-            request.BotAlias = "GolfNowTest";
-            request.UserId = "250";
-            request.InputText = messageText.Text;
+                PostTextRequest request = new PostTextRequest();
+                request.BotName = "GolfNowReservation";
+                request.BotAlias = "GolfNowTest";
+                request.UserId = "250";
+                request.InputText = messageText.Text;
 
-            var task = lexClient.PostTextAsync(request);
-            Messages.Add("Me: " + messageText.Text);
-            Messages.Add("GolfNow: " + task.Result.Message);
+                var task = lexClient.PostTextAsync(request);
+                var output = task.Result.Message;
 
-            listView.ItemsSource = Messages.ToArray();
-            listView.EndRefresh();
+                Messages.Add("Me: " + messageText.Text);
 
-            messageText.Text = "";
+                if (output.Contains("CustomPayload"))
+                {
+                    Messages.Add("GolfNow: Hello, how can I help you?");
+                }
+                else
+                {
+                    Messages.Add("GolfNow: " + output);
+
+                }
+
+
+                listView.ItemsSource = Messages.ToArray();
+                listView.EndRefresh();
+
+                messageText.Text = "";
+            } catch (Exception ee)
+            {
+                Messages.Add("GolfNow: Sorry I could not understand, bye!");
+                listView.ItemsSource = Messages.ToArray();
+                listView.EndRefresh();
+            }
         }
     }
 }

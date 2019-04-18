@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{4FFDFFB7-E82E-43B5-804E-D268636124E4}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Main.storyboard">
     <Files>
       <File FileName="iOS/Main.storyboard" />
       <File FileName="iOS/Main.cs" Line="17" Column="1" NotebookId="1" />
@@ -10,12 +10,10 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GolfNow" expanded="True">
-            <Node name="GolfNow" expanded="True" />
+            <Node name="GolfNow" expanded="True" selected="True" />
             <Node name="GolfNow.Droid" expanded="True">
               <Node name="Resources" expanded="True">
-                <Node name="layout" expanded="True">
-                  <Node name="Main.axml" selected="True" />
-                </Node>
+                <Node name="layout" expanded="True" />
               </Node>
             </Node>
             <Node name="GolfNow.iOS" expanded="True">
@@ -35,5 +33,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.GolfNow.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.463DE75E-D383-43DC-8E82-D2CB16E3B3D5" />
+  <MonoDevelop.Ide.ItemProperties.GolfNow.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B86FD978-25B0-4F13-924C-115FC427E9E0" />
 </Properties>
