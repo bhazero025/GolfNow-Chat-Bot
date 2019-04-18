@@ -13,9 +13,9 @@ namespace GolfNow
 {
     public partial class Chat : ContentPage
     {
-        public static String accessKey = "ASIAR6K6Z5XVFUUJSEEO";
-        public static String accessKeySecret = "PDxskeih//5G4hrIwx4YydHAEfV7/nq/Upb1MHgh";
-        public static String accessSessionToken = "FQoGZXIvYXdzECAaDEUyysO4q+4DqhIqkiL4AjSekJ4d5kn+8TuXDNrt9UtixcAUq8kwGW+s8+fXhQ2y2dg1N7DJVfZGbcYeM8BG/EAUF/ANOiJ6i+NQDACelC8BBei6FJtIaRZrmM0284M9+QxQp3ZNY5PlI6Fq36ka7iQ+ApfSdtLSM1bYfFPKLEvX47xOv15oKRyc2tktOgzBZJVz89/DbJCt/jxRC8ej/q5Z0OoVyVRvkVab27kbeHM/ZQdIul4Tgy6Q+MG4355rbtiNM68lSv66lGckilTGu6PO1B75Wh/rlHmUjQ8Rzw68EA01C/d5rGmbNx3anNot3wBTe9OJNb99ob1Ujy3hrDaIlNplsaohRDlYdtpGSF+D6e5ieRmimDzsYeqWXg55v19P47MMIkXC1s9hlxoFN+B4UZPb9ivzqDyPKiJs70TJ8JYFgRJ6YynEMnH3AisFHmpNSGm20IKeaOwJ6g4IR8ZPSFIlZ1cd84MnXXnZTqv2IyHtifmUuF5EZAJ+/E+X8mZ9g6hv36QogfCU5QU=";
+        public static String accessKey = "ASIAR6K6Z5XVKUOZYY5A";
+        public static String accessKeySecret = "MP++sjjR8uHvXb3H/wyqQOCJVqYc7qVYLaXFMN46";
+        public static String accessSessionToken = "FQoGZXIvYXdzEIb//////////wEaDO2E4VfkWdekUO4LVSKGA6OJBfYGxcyqviqJi0K1HzSE/SDvTZquLYhFNI/nvi+TXUIPZ6IM8RoSV1DWa/30lg2WalOqxzt7pQTEsON1MgW+xoLTEF95ES+gCWrwBXuT9bKx82uhRZ7xNGKoavJSKE2/krx+/OJRTKfN7wWyKnANHv5U2XkJl3GoF0Q/g9TRkYWst40S6etlt+/apKqrN8sh9Jo6U0qN+a3JHoHcBlpWE10uS/V1eemxoHvO3k2HUKdPCBQqCTe0Wj8eXwoPETGrNqeBvjAKA4cSJLVo8aB/e5GG8Q+e6dPmct5pp6ZKj6/d+Sms1rj8AGdFdNLH4bqAEoXNM0YCVSi9fbKrGdkZ5XzP8IZ5U9XQ4PORjuCsb38hrYsVrCFT6+Mof2cqIWD/vLfWt953SVThVCDE1y2k7bud0O03oJP+i9QwKBOo2wWN0borDUe/0wPbs4Uy6gdBqcjFkAv+3bEJhmN9M8FO3/E/iEOS+DJdwyXHoxdb7wOqzlD0bL0Ca3kjM3T/E/YZD/853SjQxuPlBQ==";
         public static AmazonLexClient lexClient = new AmazonLexClient(accessKey, accessKeySecret, accessSessionToken, Amazon.RegionEndpoint.USEast1);
         //public ObservableCollection<Message> Messages { get; set; } = new ObservableCollection<Message>();
         public List<String> Messages { get; set; } = new List<String>();
@@ -60,8 +60,8 @@ namespace GolfNow
             request.InputText = messageText.Text;
 
             var task = lexClient.PostTextAsync(request);
-            Messages.Add(messageText.Text);
-            Messages.Add("Bot " + task.Result.Message);
+            Messages.Add("Me: " + messageText.Text);
+            Messages.Add("GolfNow: " + task.Result.Message);
 
             listView.ItemsSource = Messages.ToArray();
             listView.EndRefresh();
