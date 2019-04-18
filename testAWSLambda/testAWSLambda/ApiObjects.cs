@@ -225,8 +225,35 @@ namespace testAWSLambda
 
     public class Facility
     {
+        public double Distance { get; set; }
         public int ID { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
         public string Name { get; set; }
+        public double WeightRanking { get; set; }
+        public Address Address { get; set; }
+        public string CurrencyCode { get; set; }
+        public string Description { get; set; }
+        public string EmailAddress { get; set; }
+        public int FacilityFlags { get; set; }
+        public string FullSizeImagePath { get; set; }
+        public object GiftThisCourseUrl { get; set; }
+        public int GolfRange { get; set; }
+        public string Information { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsMultiCourse { get; set; }
+        public string PhoneNumber { get; set; }
+        public List<object> ProductAccessCollection { get; set; }
+        public List<object> Tags { get; set; }
+        public string TeeTimePolicy { get; set; }
+        public string ThumbnailImagePath { get; set; }
+        public double TimeZoneOffset { get; set; }
+        public string WebsiteAddress { get; set; }
+
+        override public string ToString()
+        {
+            return String.Format("Name: {0}\nID: {1}\nAddress: {2}\nDistance: {3}\nPhone Number: {4}\nWebsite: {5}", Name, ID, Address.ToString(), Distance, PhoneNumber, WebsiteAddress);
+        }
     }
 
     public class City
@@ -245,7 +272,7 @@ namespace testAWSLambda
 
     public abstract class ApiArgs
     {
-        public enum TYPES { City, Zip, Invoice }
+        public enum TYPES { City, Zip, Invoice, Login }
         public abstract TYPES TYPE { get; }
     }
 
@@ -256,13 +283,15 @@ namespace testAWSLambda
         public string State { get; set; }
         public string Country { get; set; }
         public string Time { get; set; }
+        public string NumOfPlayers { get; set; }
 
-        public TeesByCityArgs(string cityName, string state, string country, string time)
+        public TeesByCityArgs(string cityName, string state, string country, string time, string numOfPlayers)
         {
             CityName = cityName;
             State = state;
             Country = country;
             Time = time;
+            NumOfPlayers = numOfPlayers;
         }
     }
 
@@ -272,12 +301,14 @@ namespace testAWSLambda
         public string ZipCode { get; set; }
         public string Proximity { get; set; }
         public string Time { get; set; }
+        public string NumOfPlayers { get; set; }
 
-        public TeesByZipArgs(string zipCode, string prox, string time)
+        public TeesByZipArgs(string zipCode, string prox, string time, string numOfPlayers)
         {
             ZipCode = zipCode;
             Proximity = prox;
             Time = time;
+            NumOfPlayers = numOfPlayers;
         }
     }
 
@@ -286,11 +317,26 @@ namespace testAWSLambda
         public override TYPES TYPE { get; } = TYPES.Invoice;
         public int FacilityID { get; set; }
         public int RateID { get; set; }
+        public string NumOfPlayers { get; set; }
 
-        public RateInvoiceArgs(int facilityID, int rateID)
+        public RateInvoiceArgs(int facilityID, int rateID, string numOfPlayers)
         {
             FacilityID = facilityID;
             RateID = rateID;
+            NumOfPlayers = numOfPlayers;
+        }
+    }
+
+    public class LoginArgs : ApiArgs
+    {
+        public override TYPES TYPE { get; } = TYPES.Login;
+        public string Username { get; set; }
+        public string Password { get; set; }
+
+        public LoginArgs (string username, string password)
+        {
+            Username = username;
+            Password = password;
         }
     }
 }

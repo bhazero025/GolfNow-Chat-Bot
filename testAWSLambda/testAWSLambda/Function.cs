@@ -28,6 +28,8 @@ namespace testAWSLambda
         {
             //Time slot entered by user.
             string time;
+            //Number of players indicated by the user.
+            string players;
             //The text of the response message.
             string textOut;
             //Key-Value pairs of options, response text, and other things returned by the API.
@@ -42,6 +44,26 @@ namespace testAWSLambda
             //Detrimine the intent that triggered the logic.
             switch (lexEvent.CurrentIntent.Name)
             {
+                case "login":
+                    string username;
+                    string password;
+                    string customerToken;
+
+                    if (!lexEvent.SessionAttributes.TryGetValue("username", out username))
+                        return Close(lexEvent.SessionAttributes, "Fulfilled", new LexResponse.LexMessage { ContentType = "PlainText", Content = "Could not get retrieve username." });
+                    if (!lexEvent.SessionAttributes.TryGetValue("password", out password))
+                        return Close(lexEvent.SessionAttributes, "Fulfilled", new LexResponse.LexMessage { ContentType = "PlainText", Content = "Could not get retrieve password." });
+                    
+                    lexEvent.SessionAttributes.Remove("password");
+
+                    LoginArgs loginArgs = new LoginArgs(username, password);
+                    if(ApiConnectionBroker.Instance().ApiHandler(loginArgs).TryGetValue("customerToken", out customerToken))
+                    {
+                        lexEvent.SessionAttributes["customerToken"] = customerToken;
+                        return Close(lexEvent.SessionAttributes, "Fulfilled", new LexResponse.LexMessage { ContentType = "PlainText", Content = "Login Successful." });
+                    }
+
+                    return Close(lexEvent.SessionAttributes, "Fulfilled", new LexResponse.LexMessage { ContentType = "PlainText", Content = "Could not retrieve customer token." });
                 //An example case.
                 case "ditto" :
                     //Example slot population.
@@ -58,11 +80,13 @@ namespace testAWSLambda
                         zip = "No zip...";
                     if (!lexEvent.CurrentIntent.Slots.TryGetValue("time", out time))
                         time = "No time...";
+                    if (!lexEvent.CurrentIntent.Slots.TryGetValue("players", out players))
+                        players = "1";
 
                     //Colate arguments for the API.
-                    TeesByZipArgs teesByZip = new TeesByZipArgs(zip, "15", time);
+                    TeesByZipArgs teesByZip = new TeesByZipArgs(zip, "15", time, players);
                     //Contact API and get resultes.
-                    attributes = new ApiConnectionBroker().ApiHandler(teesByZip);
+                    attributes = ApiConnectionBroker.Instance().ApiHandler(teesByZip);
                     //Seperate out the output text.
                     textOut = attributes["output"];
                     attributes.Remove("output");
@@ -85,14 +109,18 @@ namespace testAWSLambda
                     if (!lexEvent.CurrentIntent.Slots.TryGetValue("time", out time))
                         time = "No time...";
                     if (!lexEvent.CurrentIntent.Slots.TryGetValue("state", out state))
-                        time = "No state...";
+                        state = "No state...";
                     if (!lexEvent.CurrentIntent.Slots.TryGetValue("country", out country))
-                        time = "No country...";
+                        country = "No country...";
+                    if (!lexEvent.CurrentIntent.Slots.TryGetValue("players", out players))
+                        players = "1";
+
+                    players = validatePlayers(players);
 
                     //Colate arguments for the API.
-                    TeesByCityArgs teesByCity = new TeesByCityArgs(city, state, country, time);
+                    TeesByCityArgs teesByCity = new TeesByCityArgs(city, state, country, time, players);
                     //Contact API and get resultes.
-                    attributes = new ApiConnectionBroker().ApiHandler(teesByCity);
+                    attributes = ApiConnectionBroker.Instance().ApiHandler(teesByCity);
                     //Seperate out the output text.
                     textOut = attributes["output"];
                     attributes.Remove("output");
@@ -112,8 +140,8 @@ namespace testAWSLambda
                         if (lexEvent.SessionAttributes["rateOption" + option] != "")
                         {
                             TeeTimeRateSelection selection = JsonConvert.DeserializeObject<TeeTimeRateSelection>(lexEvent.SessionAttributes["rateOption" + option]);
-                            RateInvoiceArgs args = new RateInvoiceArgs(selection.FacilityID, selection.RateID);
-                            attributes = new ApiConnectionBroker().ApiHandler(args);
+                            RateInvoiceArgs args = new RateInvoiceArgs(selection.FacilityID, selection.RateID, lexEvent.SessionAttributes["players"]);
+                            attributes = ApiConnectionBroker.Instance().ApiHandler(args);
                             //Seperate out the output text.
                             textOut = attributes["output"];
                             attributes.Remove("output");
@@ -129,6 +157,30 @@ namespace testAWSLambda
                 default :
                     return Close(lexEvent.SessionAttributes, "Fulfilled", new LexResponse.LexMessage { ContentType = "PlainText", Content = "Chat Error: State Invalid." });
             }
+        }
+
+        public PolicyItem ExternalHandler(PolicyItem policyItem, ILambdaContext context)
+        {
+            policyItem.Details = "It worked";
+            return policyItem;
+        }
+
+        protected string validatePlayers(string players)
+        {
+            int playerNum;
+
+            if (int.TryParse(players, out playerNum))
+            {
+                if (playerNum < 1)
+                    players = "1";
+                else if (playerNum > 4)
+                    players = "4";
+            } else
+            {
+                players = "1";
+            }
+
+            return players;
         }
 
         //Function that closes the intent with a given fullfillment state.
