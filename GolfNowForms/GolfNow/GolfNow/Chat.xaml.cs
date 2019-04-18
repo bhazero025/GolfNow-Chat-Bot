@@ -28,7 +28,7 @@ namespace GolfNow
             //Messages.Add(new Message() { Text = "How are you?" });
 
             //this.BindingContext = new[] { "a", "b", "c" };
-
+            Messages.Add("Welcome to GolfNow Bot, please type something.");
             listView.ItemsSource = Messages;
 
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GolfNow.Chat">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GolfNow.Chat" BackgroundColor="#c4dbff">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -7,7 +7,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>   
        
-        <ListView Grid.Row="0" x:Name="listView" ItemSelected="OnItemSelected">
+        <ListView Grid.Row="0" x:Name="listView" ItemSelected="OnItemSelected" BackgroundColor="#c4dbff">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
